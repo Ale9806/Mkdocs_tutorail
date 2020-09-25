@@ -75,7 +75,7 @@ echo "site/" >> .gitignore
 ## Depolyin your docs to Github Pages 
 Building is necesary in order to host the source code to pages that are not able to host markdown, github pages is able to host markdow so we do not need to build we only need to:
 
-1.- `git init `
+1.- `git init`, `git add *`, `git commit-m "message"` , `git add remote [origin]`, `git push `
 
 2.-  `mkdocs gh-deploy --clean`
 Behind the scenes, MkDocs will build your docs and use the ghp-import tool to commit them to the gh-pages branch and push the gh-pages branch to GitHub.
