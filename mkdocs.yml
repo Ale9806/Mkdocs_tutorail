@@ -1,0 +1,4 @@
+site_name: MkDocs
+nav:
+- Home: index.md
+- Styling: styling.md
