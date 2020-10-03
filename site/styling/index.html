@@ -57,6 +57,9 @@
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/Ale9806/edit/master/docs/styling.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -77,6 +80,18 @@
             
             <li class="nav-item" data-level="1"><a href="#styling-your-docs" class="nav-link">Styling your docs</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#what-is-yaml" class="nav-link">What is YAML?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#configure-pages-and-navigation" class="nav-link">Configure Pages and Navigation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#themes" class="nav-link">Themes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -85,6 +100,49 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="styling-your-docs">Styling your docs</h1>
+<p>In order to style our Mkdocs we will access the <code>mkdocs.yml</code> file. </p>
+<h2 id="what-is-yaml">What is YAML?</h2>
+<p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> (a recursive acronym for "YAML Ain't Markup Language") is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or transmitted</p>
+<h3 id="how-to-write-yaml">How to write YAML</h3>
+<p>The basic structure of a YAML file is a map. </p>
+<p>A map is made of  keys and values all the way down:</p>
+<pre><code class="yml">key: value
+</code></pre>
+
+<p>You can denote a list using dashes:</p>
+<pre><code class="yml">list:
+    - element1: file.txt
+    - element2: file.md
+    - element3: photo.png
+</code></pre>
+
+<h2 id="configure-pages-and-navigation">Configure Pages and Navigation</h2>
+<p>The nav configuration setting in your mkdocs.yml file defines which pages are included in the global site navigation menu as well as the structure of that menu. If not provided, the navigation will be automatically created by discovering all the Markdown files in the documentation directory. An automatically created navigation configuration will always be sorted alphanumerically by file name (except that index files will always be listed first within a sub-section). You will need to manually define your navigation configuration if you would like your navigation menu sorted differently.</p>
+<p>A minimal navigation configuration could look like this:</p>
+<pre><code class="yml">nav:
+    - 'index.md'
+    - 'about.md'
+</code></pre>
+
+<p>To override the title in the nav setting add a title right before the filename.</p>
+<pre><code class="yml">nav:
+    - Home: 'index.md'
+    - About: 'about.md'
+</code></pre>
+
+<p>Navigation sub-sections can be created by listing related pages together under a section title. For example:</p>
+<p>All paths in the navigation configuration must be relative to the docs_dir configuration option. If that option is set to the default value, docs, the source files for the above configuration would be located at docs/index.md and docs/about.md</p>
+<pre><code class="yml">nav:
+    - Home: 'index.md'
+    -'User Guide':
+        -'Writing your docs': 'writing-your-docs.md'
+        -'Styling your docs': 'styling-your-docs.md'
+    - About:
+        -'License': 'license.md'
+        -'Release Notes': 'release-notes.md'
+</code></pre>
+
+<h2 id="themes">Themes</h2>
 <p>MkDocs includes a couple built-in themes as well as various third party themes, all of which can easily be customized with extra CSS or JavaScript or overridden from the theme's custom_dir. You can also create your own custom theme from the ground up for your documentation.</p>
 <p>To use a theme that is included in MkDocs, simply add this to your <code>mkdocs.yml</code> config file.</p>
 <p><code>theme: [name of theme]</code></p>

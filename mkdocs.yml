@@ -1,6 +1,7 @@
-site_name: MkDocs
+site_name: Apollo
 nav:
 - Home: index.md
 - Styling: styling.md
 
 repo_url: https://github.com/Ale9806
+highlightjs: True 
